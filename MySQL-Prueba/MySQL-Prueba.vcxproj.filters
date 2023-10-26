@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Modulo Gestion clientes">
+      <UniqueIdentifier>{f0eaa63c-8cee-44de-a0fa-7a07eb32d095}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Modulo Seguridad">
+      <UniqueIdentifier>{c728b34b-889f-4a54-bf2e-c9ab774a11c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Modulo Gestion Inventario">
+      <UniqueIdentifier>{e23f1d13-74df-47d4-8a01-9472a470638f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Modulo Ventas">
+      <UniqueIdentifier>{76e76622-87a3-4375-b9bc-a130b0b64e76}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Farmacia POS - MySQL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Conexion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="seguridad.cpp">
+      <Filter>Header Files\Modulo Seguridad</Filter>
+    </ClCompile>
+    <ClCompile Include="comandos.cpp">
+      <Filter>Header Files\Modulo Ventas</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="clientes.h">
+      <Filter>Header Files\Modulo Gestion clientes</Filter>
+    </ClInclude>
+    <ClInclude Include="Empleados.h">
+      <Filter>Header Files\Modulo Seguridad</Filter>
+    </ClInclude>
+    <ClInclude Include="venta.h">
+      <Filter>Header Files\Modulo Ventas</Filter>
+    </ClInclude>
+    <ClInclude Include="inventario.h">
+      <Filter>Header Files\Modulo Gestion Inventario</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
