@@ -30,10 +30,15 @@ Fecha:                  21/08/2023
 using namespace std;
 
 
+
 int main(void)
 {
-	//Iniciar_Sesion();
-	//VerEmpleados();
-	AgregarEmpleado();
+	while (!0)
+	{
+		Iniciar_Sesion();
+		AgregarEmpleado();
+		VerEmpleados();
+	}
+	//while(!0)
 	return 0;
 }
