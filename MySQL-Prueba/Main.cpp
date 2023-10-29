@@ -9,7 +9,7 @@ Estilo de codficacion:  Notacion Hungara, CamelCase
 *
 Descripcion:            Sistema de manejo de inventario y facturacion
 *						de una farmacia en
-*						consola escrito en C++ y Base de datos en MySQL
+*						consola escrito en C++ y archivos de texto.
 *
 *
 *
@@ -22,18 +22,21 @@ Fecha:                  21/08/2023
 // control de nombre cientifico, marca, laboratorio, generica y control bajo receta.
 
 #include <iostream>
-#include "inventario.h"
-#include "clientes.h"
-#include "Empleados.h"
+#include "prototipos.h"
 #include "venta.h"
 //#include "Menu.h"
 using namespace std;
 
 
+
 int main(void)
 {
+	Empleado Empleado1;
+	Empleado1.getData();
+	Empleado1.ImprimirDatos();
+	Empleado1.AgregarEmpleado();
 	//Iniciar_Sesion();
 	//VerEmpleados();
-	AgregarEmpleado();
+	//AgregarEmpleado();
 	return 0;
 }

@@ -42,19 +42,19 @@
     <ClCompile Include="comandos.cpp">
       <Filter>Header Files\Modulo Ventas</Filter>
     </ClCompile>
+    <ClCompile Include="Inventario.cpp">
+      <Filter>Header Files\Modulo Gestion Inventario</Filter>
+    </ClCompile>
+    <ClCompile Include="prototipos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="clientes.h">
-      <Filter>Header Files\Modulo Gestion clientes</Filter>
-    </ClInclude>
-    <ClInclude Include="Empleados.h">
-      <Filter>Header Files\Modulo Seguridad</Filter>
-    </ClInclude>
     <ClInclude Include="venta.h">
       <Filter>Header Files\Modulo Ventas</Filter>
     </ClInclude>
-    <ClInclude Include="inventario.h">
-      <Filter>Header Files\Modulo Gestion Inventario</Filter>
+    <ClInclude Include="prototipos.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
