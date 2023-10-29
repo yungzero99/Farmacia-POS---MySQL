@@ -44,7 +44,7 @@ void Iniciar_Sesion()
 	
 	return;
 }
-
+/*
 bool Cancelar(string sOpcion)
 {
 	if (sOpcion == "-1")
@@ -55,3 +55,4 @@ void VerEmpleados()
 {
 
 }
+*/

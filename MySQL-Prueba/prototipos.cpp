@@ -8,6 +8,10 @@ using namespace std;
 void Empleado :: AgregarEmpleado()
 {
 	Empleado NuevoEmpleado;
+    char cRol;
+    char cLetra;
+    bool bTieneNumero = false;
+    int i = 0;
 
 	cout << "--- Ingrese los datos del nuevo empleado	(-1) para cancelar ---\n";
 
@@ -205,10 +209,6 @@ void Empleado :: AgregarEmpleado()
     cLetra = toupper(NuevoEmpleado.sCedula[15]);
     NuevoEmpleado.sCedula[15] = cLetra;
 
-
-    sConsulta = "Insert into tblempleado (nombre, apellido, cedula, telefono, direccion, usuario, contrasena, rol) values('" + NuevoEmpleado.sNombre + "', '" + NuevoEmpleado.sApellido + "', '" + NuevoEmpleado.sCedula + "', '" + NuevoEmpleado.sTelefono + "', '" + NuevoEmpleado.sDireccion + "', '" + NuevoEmpleado.sUsuario + "', '" + NuevoEmpleado.sContrasena + "', '" + cRol + "')";
-    querry = sConsulta.c_str();
-    bQueryState = mysql_query(Conexion, querry);
 }
 
 
@@ -234,46 +234,6 @@ bool Cancelar(string sOpcion)
 }
 
 
-void VerEmpleados()
-{
-    MYSQL* Conexion;
-    MYSQL_ROW fila;
-    MYSQL_RES* resultado;
-    bool bQueryState;
-    Conexion = mysql_init(0);
-    Conexion = mysql_real_connect(Conexion, "localhost", "root", "root", "farmaciapos", 3306, NULL, 0);
-
-
-    if (Conexion)
-    {
-        string insertar = "select * from tblempleado";
-        const char* querry = insertar.c_str();
-        bQueryState = mysql_query(Conexion, querry);
-
-
-        if (!bQueryState)
-        {
-            resultado = mysql_store_result(Conexion);
-            cout << "ID_Empleado , Nombre , Apellido , Cedula , Telefono , Direccion , Usuario , Contrasena , Rol \n";
-            while (fila = mysql_fetch_row(resultado))
-            {
-                cout << fila[0] << "  " << fila[1] << "  " << fila[2] << "  " << fila[3] << " " << fila[4] << " " << fila[5] << " " << fila[6] << " " << fila[7] << " " << fila[8] << " " << "\n";
-            }
-        }
-        else
-        {
-            cout << "XXXX CONSULTA FALLIDA XXXX" << endl;
-        }
-    }
-    else
-    {
-        cout << "Conexion fallida" << endl;
-    }
-
-
-    mysql_close(Conexion);
-}
-}
 
 void Empleado::getData()
 {

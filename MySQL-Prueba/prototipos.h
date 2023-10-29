@@ -9,57 +9,56 @@ using namespace std;
 
 struct Cliente
 {
-	unsigned short int ID_Cliente;
-	string sNombre;
-	string sApellido;
-	string sTelefono;
-	string sDireccion;
+	unsigned short int	 ID_Cliente;
+	string				 sNombre;
+	string				 sApellido;
+	string				 sTelefono;
+	string				 sDireccion;
 };
 
 struct Lote
 {
-	unsigned short int ID_Lote;
-	unsigned short int Unidades;
-	string sFechaElaboracion;
-	string sFechaVencimiento;
+	unsigned short int	 ID_Lote;
+	unsigned short int	 Unidades;
+	string				 sFechaElaboracion;
+	string				 sFechaVencimiento;
 
 };
 
 struct Producto
 {
-	unsigned short int ID_Producto;
-	Lote Lote;
-	string sNombre;
-	string sPresentacion;
-	string sLaboratorio;
-	string sNombreGenerico;
-	float fPrecio;
-	int iexistenciaTotal;
-	char cControlado;
+	unsigned short int idProducto;
+	Lote			   Lote;
+	int				   iExistencia;
+	string			   sNombre;
+	string			   sLaboratorio;
+	string			   sNombreCientifico;
+	char			   cControlado;
+
 };
 
 struct Empleado
 {
-	unsigned short int ID_Empleado;
-	string sNombre;
-	string sApellido;
-	string sCedula;
-	string sTelefono;
-	string sDireccion;
-	string sUsuario;
-	string sContrasena;
-	char   sRol;
+	unsigned short int  ID_Empleado;
+	string				sNombre;
+	string				sApellido;
+	string				sCedula;
+	string				sTelefono;
+	string				sDireccion;
+	string				sUsuario;
+	string				sContrasena;
+	string				sRol;
 
 	void AgregarEmpleado();
 	void getData();
 	void ImprimirDatos();
 };
 
-void Iniciar_Sesion();
+bool TieneNumero(string);
+
+
+
 bool Cancelar(string);
-//void AgregarEmpleado();
-void VerEmpleados();
-void prueba1();
 
 
 #endif
