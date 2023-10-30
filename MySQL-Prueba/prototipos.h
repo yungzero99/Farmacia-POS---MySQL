@@ -4,6 +4,7 @@
 
 using namespace std;
 #include <string>
+using std::string;
 
 
 
@@ -35,6 +36,7 @@ struct Producto
 	string			   sNombreCientifico;
 	char			   cControlado;
 
+
 };
 
 struct Empleado
@@ -49,11 +51,16 @@ struct Empleado
 	string				sContrasena;
 	string				sRol;
 
-	void AgregarEmpleado();
+	Empleado();
+
+	void AgregarEmpleado(FILE *);
+
 	void getData();
 	void ImprimirDatos();
 };
 
+void ListarEmpleados(FILE *);
+void ImprimirLinea(ostream&, const Empleado&);
 bool TieneNumero(string);
 
 
@@ -62,3 +69,5 @@ bool Cancelar(string);
 
 
 #endif
+
+

@@ -1,20 +1,108 @@
 #include "prototipos.h"
 #include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <string>
+
+using std::string;
+
 using namespace std;
 
 
-
-
-void Empleado :: AgregarEmpleado()
+Empleado::Empleado()
 {
-	Empleado NuevoEmpleado;
+
+    ID_Empleado= 0;
+	sNombre = "";
+	sApellido = "";
+	sCedula = "";
+	sTelefono = "";
+	sDireccion = "";
+	sUsuario = "";
+	sContrasena = "";
+	sRol = "";
+}
+void ImprimirLinea(const Empleado &DatosEmpleado)
+{
+     cout
+        << setw(10) << DatosEmpleado.ID_Empleado
+        << setw(16) << DatosEmpleado.sNombre
+        << setw(15) << DatosEmpleado.sApellido 
+        << setw(15) << DatosEmpleado.sCedula
+        << setw(15) << DatosEmpleado.sTelefono 
+        << setw(15) << DatosEmpleado.sDireccion 
+        << setw(15) << DatosEmpleado.sUsuario 
+        << setw(15) << DatosEmpleado.sContrasena
+        << setw(15) << DatosEmpleado.sRol << endl;
+}
+void ListarEmpleados(FILE* readPtr)
+{
+    FILE *writePtr;
+
+    Empleado DatosEmpleado = Empleado();
+
+
+
+    if (fopen_s(&writePtr, "imprimir.txt", "w") == NULL)
+	{
+        cout << "No se pudo abrir el archivo\n";
+        exit(0);
+	}
+    else
+    {
+        rewind(readPtr);
+    }
+
+    cout  << setw(10) << "ID" << setw(16) << "Nombre" << setw(15)
+        << "Apellido" << setw(15) << "Cedula" << 
+        setw(15) << "Telefono" << setw(15) << "Direccion"
+        << setw(15) << "Usuario" << setw(15) << "Contrasena" << setw(15) << "Rol\n";
+
+
+    while (!feof(readPtr))
+    {
+		fread(&DatosEmpleado, sizeof(Empleado), 1, readPtr);
+
+		if (DatosEmpleado.ID_Empleado != 0)
+		{
+			ImprimirLinea(DatosEmpleado);
+		}
+    }
+
+
+}
+
+void Empleado :: AgregarEmpleado(FILE * fPtr)
+{
+
+      ///escritura
+	Empleado NuevoEmpleado = Empleado();
+    Empleado DatosEmpleado = Empleado();
     char cRol;
     char cLetra;
     bool bTieneNumero = false;
     int i = 0;
+    int j = 200;
 
-	cout << "--- Ingrese los datos del nuevo empleado	(-1) para cancelar ---\n";
 
+    while(!feof(fPtr))
+    {
+        fread(&DatosEmpleado, sizeof(Empleado), 1, fPtr);
+
+        if (DatosEmpleado.ID_Empleado == 0)
+        {
+            cout << "ID: " << DatosEmpleado.ID_Empleado << endl;
+            cout << "Nombre:  " << DatosEmpleado.sNombre << endl;
+            break;
+        }
+        j++;
+    }
+
+
+    cout << "El indice es: " << j << endl;
+
+    cout << "--- Ingrese los datos del nuevo empleado	(-1) para cancelar ---\n";
+    cout << "Nombre:    ";
 	cin >> NuevoEmpleado.sNombre;
 
 	if (Cancelar(NuevoEmpleado.sNombre) == !0)
@@ -120,7 +208,8 @@ void Empleado :: AgregarEmpleado()
 
     cout << "--- Ingrese los datos del nuevo empleado    (-1) para cancelar ---\n";
     cout << "Direccion:     ";
-    cin >> NuevoEmpleado.sDireccion;
+    
+    getline(cin, NuevoEmpleado.sDireccion);
 
 
     if (Cancelar(NuevoEmpleado.sDireccion) == 1)
@@ -208,6 +297,9 @@ void Empleado :: AgregarEmpleado()
 
     cLetra = toupper(NuevoEmpleado.sCedula[15]);
     NuevoEmpleado.sCedula[15] = cLetra;
+    fseek(fPtr, (j - 1) * sizeof(Empleado), SEEK_SET);
+    fwrite(&NuevoEmpleado, sizeof(Empleado), 1, fPtr);
+
 
 }
 

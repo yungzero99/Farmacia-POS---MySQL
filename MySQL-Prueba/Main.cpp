@@ -24,6 +24,11 @@ Fecha:                  21/08/2023
 #include <iostream>
 #include "prototipos.h"
 #include "venta.h"
+#include <fstream>
+#include <string>
+using std::string;
+
+
 //#include "Menu.h"
 using namespace std;
 
@@ -31,12 +36,54 @@ using namespace std;
 
 int main(void)
 {
-	Empleado Empleado1;
-	Empleado1.getData();
-	Empleado1.ImprimirDatos();
-	Empleado1.AgregarEmpleado();
-	//Iniciar_Sesion();
-	//VerEmpleados();
-	//AgregarEmpleado();
+	FILE* ArchivoEmpleados;
+	fopen_s(&ArchivoEmpleados, "Empleados.txt", "r+");
+
+	if (ArchivoEmpleados == NULL)
+	{
+		cout << "\nError al abrir el archivo\n";
+		exit(0);
+	}
+
+
+	
+	/*CODIGO FSTREAM 
+	fstream ArchivoEmpleados("empleados.txt", ios::in | ios::out | ios::binary);
+	//fstream ArchivoEmpleados("empleados.dat", ios::in | ios::out);
+
+	if (!ArchivoEmpleados)
+	{
+		cout << "\nError al abrir el archivo\n";
+		exit(0);
+	}
+	else
+
+	{
+	cout << "\nArchivo abierto correctamente\n";
+
+	}
+	
+	ListarEmpleados(ArchivoEmpleados);
+
+	//ArchivoEmpleados.clear();
+
+	*/
+
+	Empleado Empleado1 = Empleado();
+
+
+
+	while (1)
+	{
+		Empleado1.AgregarEmpleado(ArchivoEmpleados);
+		//Empleado1.ListarEmpleados(ArchivoEmpleados);
+		//Iniciar_Sesion();
+		//VerEmpleados();
+		//AgregarEmpleado();
+		//ArchivoEmpleados.clear();
+
+
+	}
+		
 	return 0;
 }
