@@ -136,13 +136,13 @@
     <ClCompile Include="comandos.cpp" />
     <ClCompile Include="Conexion.cpp" />
     <ClCompile Include="Farmacia POS - MySQL.cpp" />
+    <ClCompile Include="Inventario.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="prototipos.cpp" />
     <ClCompile Include="seguridad.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="clientes.h" />
-    <ClInclude Include="Empleados.h" />
-    <ClInclude Include="inventario.h" />
+    <ClInclude Include="prototipos.h" />
     <ClInclude Include="venta.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
